@@ -1,0 +1,15 @@
+# pip install pypdf2
+
+import PyPDF2
+pdf_file_path = r'c:\users\gagan\downloads\enrollmentcertificate.pdf'
+pdf = open(pdf_file_path, 'rb')
+pdf_reader = PyPDF2.PdfReader(pdf)
+
+for page in pdf_reader.pages:
+	page_text = page.extract_text()
+	lines = page_text.split('\n')
+	for line in lines:
+		strings = line.split(',')
+		for str in strings:
+			print(str)
+			
